@@ -19,8 +19,6 @@ play_btn = pygame.image.load("sprites/play_btn.png")
 pygame.font.init()
 comic_sans = pygame.font.SysFont('Comic Sans MS', 30)
 
-# def initialize_recipe(recipe_name):
-
 text_surface = comic_sans.render("", True, (0, 0, 0))
 
 main_screen = True
