@@ -23,17 +23,15 @@ comic_sans = pygame.font.SysFont('Comic Sans MS', 30)
 
 text_surface = comic_sans.render("", True, (0, 0, 0))
 
+main_screen = True
+
 while running:
     screen.fill("white")
-
 
     class Recipe:
         def __init__(self, name, filename):
             self.name = name
             self.filename = filename
-
-
-    main_screen = True
 
     if main_screen:
         coffee_recipe = Recipe("Coffee", "recipe_scripts/coffee.py")
@@ -46,7 +44,7 @@ while running:
         omelette_screen = screen.blit(omelette_image, (300, 75))
         pancake_screen = screen.blit(pancake_image, (300, 300))
 
-        play_btn_screen = screen.blit(play_btn, (300, 300))
+        play_btn_screen = screen.blit(play_btn, (650, 300))
         screen.blit(text_surface, (630, 120))
 
     pygame.display.flip()
@@ -70,8 +68,10 @@ while running:
             if pancake_screen.collidepoint(mouse_x, mouse_y):
                 recipe = 3
                 text_surface = comic_sans.render(pancake_recipe.name, True, (0, 0, 0))
+            if play_btn_screen.collidepoint(mouse_x, mouse_y):
+                main_screen = False
 
-    clock.tick(60)
+    clock.tick(10)
 
 pygame.quit()
 quit()
