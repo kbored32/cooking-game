@@ -5,8 +5,8 @@ screen = pygame.display.set_mode((960, 480))
 clock = pygame.time.Clock()
 running = True
 
-pygame.display.set_caption("Kanad Cooking!")  # Sets window title
-programIcon = pygame.image.load('./sprites/icon.png')  # Sets window icon
+pygame.display.set_caption("Kanad Cooking!")
+programIcon = pygame.image.load('./sprites/icon.png')
 pygame.display.set_icon(programIcon)
 
 coffee_image = pygame.image.load("./sprites/coffee.jpg")
