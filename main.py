@@ -23,13 +23,20 @@ text_surface = comic_sans.render("", True, (0, 0, 0))
 
 main_screen = True
 
+
+def debug(msg):
+    print(f"[DEBUG LOGGER] - {msg}")
+
+
 while running:
     screen.fill("white")
+
 
     class Recipe:
         def __init__(self, name, filename):
             self.name = name
             self.filename = filename
+
 
     if main_screen:
         coffee_recipe = Recipe("Coffee", "recipe_scripts/coffee.py")
@@ -41,6 +48,7 @@ while running:
         instant_ramen_screen = screen.blit(instant_ramen_image, (50, 300))
         omelette_screen = screen.blit(omelette_image, (300, 75))
         pancake_screen = screen.blit(pancake_image, (300, 300))
+
 
         play_btn_screen = screen.blit(play_btn, (650, 300))
         screen.blit(text_surface, (630, 120))
@@ -67,9 +75,10 @@ while running:
                 recipe = 3
                 text_surface = comic_sans.render(pancake_recipe.name, True, (0, 0, 0))
             if play_btn_screen.collidepoint(mouse_x, mouse_y):
+                debug("Game starting")
                 main_screen = False
 
-    clock.tick(10)
+    clock.tick(60)
 
 pygame.quit()
 quit()
