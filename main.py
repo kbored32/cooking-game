@@ -14,7 +14,7 @@ instant_ramen_image = pygame.image.load("./sprites/instant_ramen.jpg")
 omelette_image = pygame.image.load("./sprites/omelette.jpg")
 pancake_image = pygame.image.load("./sprites/pancake.jpg")
 
-play_btn = pygame.image.load("sprites/play_btn.png")
+play_btn = pygame.transform.scale(pygame.image.load("sprites/play_btn.png"), (200, 100))
 
 pygame.font.init()
 comic_sans = pygame.font.SysFont('Comic Sans MS', 30)
@@ -49,8 +49,7 @@ while running:
         omelette_screen = screen.blit(omelette_image, (300, 75))
         pancake_screen = screen.blit(pancake_image, (300, 300))
 
-
-        play_btn_screen = screen.blit(play_btn, (650, 300))
+        play_btn_screen = screen.blit(play_btn, (600, 200))
         screen.blit(text_surface, (630, 120))
 
     pygame.display.flip()
