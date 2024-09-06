@@ -9,7 +9,7 @@ pygame.display.set_caption("Kanade Cooking!")
 programIcon = pygame.image.load('./sprites/icon.png')
 pygame.display.set_icon(programIcon)
 
-coffee_image = pygame.image.load("./sprites/coffee.jpg")
+coffee_image = pygame.transform.scale(pygame.image.load("sprites/coffee.png"), (128,128))
 instant_ramen_image = pygame.image.load("./sprites/instant_ramen.jpg")
 omelette_image = pygame.image.load("./sprites/omelette.jpg")
 pancake_image = pygame.image.load("./sprites/pancake.jpg")
