@@ -28,9 +28,10 @@ def debug(msg):
     print(f"[DEBUG LOGGER] - {msg}")
 
 
+has_run = False
+
 while running:
     screen.fill("white")
-
 
     class Recipe:
         def __init__(self, name, filename):
@@ -38,12 +39,16 @@ while running:
             self.filename = filename
 
 
-    if main_screen:
-        coffee_recipe = Recipe("Coffee", "recipe_scripts/coffee.py")
-        instant_ramen_recipe = Recipe("Instant Ramen", "recipe_scripts/instant_ramen.py")
-        omelette_recipe = Recipe("Omelette", "recipe_scripts/omelette.py")
-        pancake_recipe = Recipe("Pancake", "recipe_scripts/pancake.py")
+    coffee_recipe = Recipe("Coffee", "recipe_scripts/coffee.py")
+    instant_ramen_recipe = Recipe("Instant Ramen", "recipe_scripts/instant_ramen.py")
+    omelette_recipe = Recipe("Omelette", "recipe_scripts/omelette.py")
+    pancake_recipe = Recipe("Pancake", "recipe_scripts/pancake.py")
 
+    if not has_run:
+        text_surface = comic_sans.render(coffee_recipe.name, True, (0, 0, 0))
+        has_run = True
+
+    if main_screen:
         coffee_screen = screen.blit(coffee_image, (50, 75))
         instant_ramen_screen = screen.blit(instant_ramen_image, (50, 300))
         omelette_screen = screen.blit(omelette_image, (300, 75))
