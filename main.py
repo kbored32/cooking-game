@@ -74,7 +74,13 @@ while running:
                 recipe = 3
                 text_surface = comic_sans.render(pancake_recipe.name, True, (0, 0, 0))
             if play_btn_screen.collidepoint(mouse_x, mouse_y):
-                debug("Game starting")
+                try:
+                    recipe
+                except NameError:
+                    recipe = 0
+                else:
+                    recipe = recipe
+                debug(f"Game starting : Recipe {recipe}")
                 main_screen = False
 
     clock.tick(60)
