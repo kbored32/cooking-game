@@ -9,7 +9,7 @@ pygame.display.set_caption("Kanade Cooking!")
 programIcon = pygame.image.load('./sprites/icon.png')
 pygame.display.set_icon(programIcon)
 
-coffee_image = pygame.transform.scale(pygame.image.load("sprites/coffee.png"), (128,128))
+coffee_image = pygame.transform.scale(pygame.image.load("sprites/coffee.png"), (128, 128))
 instant_ramen_image = pygame.image.load("./sprites/instant_ramen.jpg")
 omelette_image = pygame.image.load("./sprites/omelette.jpg")
 pancake_image = pygame.image.load("./sprites/pancake.jpg")
@@ -17,9 +17,8 @@ pancake_image = pygame.image.load("./sprites/pancake.jpg")
 play_btn = pygame.transform.scale(pygame.image.load("sprites/play_btn.png"), (200, 100))
 
 pygame.font.init()
-comic_sans = pygame.font.SysFont('Comic Sans MS', 30)
 
-text_surface = comic_sans.render("", True, (0, 0, 0))
+text_surface = pygame.font.SysFont('Comic Sans MS', 30).render("", True, (0, 0, 0))
 
 main_screen = True
 game_starting = False
@@ -46,7 +45,7 @@ while running:
     pancake_recipe = Recipe("Pancake")
 
     if not has_run:
-        text_surface = comic_sans.render(coffee_recipe.name, True, (0, 0, 0))
+        text_surface = pygame.font.SysFont('Comic Sans MS', 30).render(coffee_recipe.name, True, (0, 0, 0))
         has_run = True
 
     if main_screen:
@@ -72,16 +71,16 @@ while running:
             mouse_x, mouse_y = event.pos
             if coffee_screen.collidepoint(mouse_x, mouse_y):
                 recipe = 0
-                text_surface = comic_sans.render(coffee_recipe.name, True, (0, 0, 0))
+                text_surface = pygame.font.SysFont('Comic Sans MS', 30).render(coffee_recipe.name, True, (0, 0, 0))
             if instant_ramen_screen.collidepoint(mouse_x, mouse_y):
                 recipe = 1
-                text_surface = comic_sans.render(instant_ramen_recipe.name, True, (0, 0, 0))
+                text_surface = pygame.font.SysFont('Comic Sans MS', 30).render(instant_ramen_recipe.name, True, (0, 0, 0))
             if omelette_screen.collidepoint(mouse_x, mouse_y):
                 recipe = 2
-                text_surface = comic_sans.render(omelette_recipe.name, True, (0, 0, 0))
+                text_surface = pygame.font.SysFont('Comic Sans MS', 30).render(omelette_recipe.name, True, (0, 0, 0))
             if pancake_screen.collidepoint(mouse_x, mouse_y):
                 recipe = 3
-                text_surface = comic_sans.render(pancake_recipe.name, True, (0, 0, 0))
+                text_surface = pygame.font.SysFont('Comic Sans MS', 30).render(pancake_recipe.name, True, (0, 0, 0))
             if play_btn_screen.collidepoint(mouse_x, mouse_y):
                 try:
                     recipe
