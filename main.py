@@ -21,7 +21,7 @@ pygame.font.init()
 text_surface = pygame.font.SysFont('Comic Sans MS', 30).render("", True, (0, 0, 0))
 
 main_screen = True
-game_starting = False
+game_start = False
 
 
 def debug(msg):
@@ -57,8 +57,17 @@ while running:
         play_btn_screen = screen.blit(play_btn, (600, 200))
         screen.blit(text_surface, (630, 120))
 
-    if game_starting:
+    if game_start:
         screen.blit(text_surface, (425, 50))
+
+        if recipe == 0:
+            screen.blit(coffee_image, (25, 25))
+        elif recipe == 1:
+            screen.blit(instant_ramen_image, (25, 25))
+        elif recipe == 2:
+            screen.blit(omelette_image, (25, 25))
+        elif recipe == 3:
+            screen.blit(pancake_image, (25, 25))
 
     pygame.display.flip()
 
@@ -74,7 +83,8 @@ while running:
                 text_surface = pygame.font.SysFont('Comic Sans MS', 30).render(coffee_recipe.name, True, (0, 0, 0))
             if instant_ramen_screen.collidepoint(mouse_x, mouse_y):
                 recipe = 1
-                text_surface = pygame.font.SysFont('Comic Sans MS', 30).render(instant_ramen_recipe.name, True, (0, 0, 0))
+                text_surface = pygame.font.SysFont('Comic Sans MS', 30).render(instant_ramen_recipe.name, True,
+                                                                               (0, 0, 0))
             if omelette_screen.collidepoint(mouse_x, mouse_y):
                 recipe = 2
                 text_surface = pygame.font.SysFont('Comic Sans MS', 30).render(omelette_recipe.name, True, (0, 0, 0))
@@ -90,7 +100,7 @@ while running:
                     recipe = recipe
                 debug(f"Game starting : Recipe {recipe}")
                 main_screen = False
-                game_starting = True
+                game_start = True
 
     clock.tick(60)
 
