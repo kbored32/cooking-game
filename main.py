@@ -1,25 +1,27 @@
 import pygame
 
 pygame.init()
+pygame.font.init()
 screen = pygame.display.set_mode((960, 480))
 clock = pygame.time.Clock()
 running = True
 
+# Adds a icon image to the window
 pygame.display.set_caption("Kanade Cooking!")
 programIcon = pygame.image.load('./sprites/icon.png')
 pygame.display.set_icon(programIcon)
 
+# Loads necessary sprites
 coffee_image = pygame.transform.scale(pygame.image.load("sprites/coffee.png"), (128, 128))
 instant_ramen_image = pygame.image.load("./sprites/instant_ramen.jpg")
 omelette_image = pygame.image.load("./sprites/omelette.jpg")
 pancake_image = pygame.image.load("./sprites/pancake.jpg")
-
 play_btn = pygame.transform.scale(pygame.image.load("sprites/play_btn.png"), (200, 100))
 
-pygame.font.init()
-
+# Initializes the ability to create text using Comic Sans MS
 text_surface = pygame.font.SysFont('Comic Sans MS', 30).render("", True, (0, 0, 0))
 
+# Program variables
 main_screen = True
 game_start = False
 
@@ -96,8 +98,6 @@ while running:
                     recipe
                 except NameError:
                     recipe = 0
-                else:
-                    recipe = recipe
                 debug(f"Game starting : Recipe {recipe}")
                 main_screen = False
                 game_start = True
